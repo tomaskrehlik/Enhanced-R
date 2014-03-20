@@ -158,3 +158,15 @@ class RSourceCodeCommand(sublime_plugin.TextCommand):
         cmd = "source(\"" +  escape_dq(fname) + "\")"
         self.view.run_command("r_send_text", {"cmd": cmd})
 
+class RGetHelpCommand(sublime_plugin.TextCommand):
+    def run(self, edit):
+        for region in self.view.sel():
+            if region.begin() == region.end():
+                word = self.view.word(region)
+            else:
+                word = region
+            if not word.empty():
+                keyword = self.view.substr(word)
+
+        cmd = "?" + keyword
+        self.view.run_command("r_send_text", {"cmd": cmd})

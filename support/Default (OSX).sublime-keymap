@@ -14,5 +14,10 @@
       { "key": "selector", "operator": "equal", "operand": "source.r" },
       { "key": "selector", "operator": "not_equal", "operand": "text.tex.latex" }
     ]
+  },
+  { "keys": ["f1"], "command": "r_get_help", "context":
+    [
+      { "key": "selector", "operator": "equal", "operand": "source.r" }
+    ]
   }
 ]
